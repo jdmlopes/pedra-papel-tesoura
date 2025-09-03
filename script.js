@@ -1,8 +1,9 @@
-let botMove = getComputerChoice();
-let playerMove = getHumanChoice();
+let playerScore = 0;
+let botScore = 0;
 
-console.log("Você escolheu " + playerMove);
-console.log("O computador escolheu " + botMove);
+playRound(getHumanChoice(),getComputerChoice());
+
+
 
 
 
@@ -25,4 +26,54 @@ function getComputerChoice(){
 
 function getHumanChoice(){
     return prompt("Escolha entre PEDRA, PAPEL ou TESOURA").toUpperCase();
+}
+
+function playRound(playerMove, botMove){
+    console.log("Você escolheu: " + playerMove);
+    console.log("O computador escolheu: " + botMove);
+
+    if(playerMove == botMove){
+        console.log("EMPATE");
+        return;
+    }
+
+    if(playerMove == "PEDRA"){
+
+        if(botMove == "TESOURA"){
+            console.log("VOCÊ VENCEU");
+            return;
+        }
+
+        if(botMove == "PAPEL"){
+            console.log("VOCÊ PERDEU");
+            return;
+        }
+    }
+
+    if(playerMove == "PAPEL"){
+
+        if(botMove == "PEDRA"){
+            console.log("VOCÊ VENCEU");
+            return;
+        }
+
+        if(botMove == "TESOURA"){
+            console.log("VOCÊ PERDEU");
+            return;
+        }
+    }
+
+    if(playerMove == "TESOURA"){
+
+        if(botMove == "PAPEL"){
+            console.log("VOCÊ VENCEU");
+            return;
+        }
+
+        if(botMove == "PEDRA"){
+            console.log("VOCÊ PERDEU");
+            return;
+        }
+    }
+    
 }
